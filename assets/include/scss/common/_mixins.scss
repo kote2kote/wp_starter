@@ -1,0 +1,129 @@
+/*==========================================================
+layout
+===========================================================*/
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin heroImage($height:100vh, $url:"https://via.placeholder.com/1920x1080/27709b/ffffff?text=Image") {
+  height: $height;
+  background-image: url("#{$url}");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/*==========================================================
+font
+===========================================================*/
+
+@mixin fz($size: $font-size-default) {
+	font-size: $size + px;
+	font-size: ($size / $font-size-computed) + rem;
+}
+
+
+/*==========================================================
+rem
+===========================================================*/
+
+@mixin rem($property, $values...) {
+  $n: length($values);
+  $i: 1;
+
+  $pxlist: ();
+  $remlist: ();
+
+  @while $i <= $n {
+    $itemVal: (nth($values, $i));
+    @if $itemVal != "auto"{
+      $rem: $itemVal / $font-set-size-computed;
+      $pxlist: append($pxlist, $itemVal + px);
+      $remlist: append($remlist, $rem + rem);
+    } @else {
+      $pxlist: append($pxlist, auto);
+      $remlist: append($remlist, auto);
+    }
+
+    $i: $i + 1;
+  }
+
+  #{$property}: $pxlist;
+  #{$property}: $remlist;
+}
+
+/*==========================================================
+responsive
+===========================================================*/
+@mixin bp($value: md) {
+  @if $value == sm {
+      @media only screen and (max-width: bp(sm)) { @content };    //under 576px
+  }
+  @if $value == md {
+      @media only screen and (max-width: bp(md)) { @content };     //under 768px
+  }
+  @if $value == lg {
+      @media only screen and (max-width: bp(lg)) { @content };    //under 992px
+  }
+  @if $value == xl {
+      @media only screen and (max-width: bp(xl)) { @content };    //under 1200px
+  }
+  @else {
+      @media only screen and (max-width: $value + px) { @content };    //customize
+  }
+}
+@mixin bp-min($value: md) {
+  @if $value == sm {
+      @media only screen and (min-width: bp(sm)) { @content };    //below 576px
+  }
+  @if $value == md {
+      @media only screen and (min-width: bp(md)) { @content };     //below 768px
+  }
+  @if $value == lg {
+      @media only screen and (min-width: bp(lg)) { @content };    //below 992px
+  }
+  @if $value == xl {
+      @media only screen and (min-width: bp(xl)) { @content };    //below 1200px
+  }
+  @else {
+      @media only screen and (min-width: $value + px) { @content };    //customize
+  }
+}
+
+/*==========================================================
+hack ie
+===========================================================*/
+@mixin hack($hack-ver:'') {
+  //IE8 hack
+    @if $hack-ver == "ie8" {
+        @media \0screen {
+            @content;
+        }
+    }
+    // * IE9-10 hack(add propary \9)
+    @else if $hack-ver == "ie9-10" {
+        @media all and (min-width:0\0) {
+            @content;
+        }
+    }
+    // * IE10 hack(add propary \9)
+    @else if $hack-ver == "ie10" {
+        @media all and (-ms-high-contrast:none\0) {
+            @content;
+        }
+    }
+    // * IE11 hack(add selector *::-ms-backdrop)
+    @else if $hack-ver == "ie11" {
+        @media all and (-ms-high-contrast:none\0) {
+            @content;
+        }
+    }
+    @else if $hack-ver == "edge" {
+        @supports (-ms-ime-align: auto) {
+            @content;
+        }
+    }
+}

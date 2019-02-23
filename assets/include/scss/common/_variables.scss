@@ -1,0 +1,77 @@
+/*============================================================================*/
+// settings
+/*============================================================================*/
+
+// color
+$color-set-primary:                                               #008CBA !default;
+$color-set-secondary:                                             #52D4FE !default;
+$color-set-font:                                                  #333333 !default;
+$color-set-bg:                                                    #F3F6F9 !default;
+$color-set-link:                                                  #657382 !default;
+$color-set-higlight:                                              #657382 !default;
+
+// fonts
+$font-set-family-sans-serif:"メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !default;
+$font-set-family-serif: "Lucida Grande", "segoe UI", "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", Meiryo, Arial, serif !default;
+$font-set-family-secondary: "Roboto Slab", Helvetica, Arial, sans-serif !default;
+$font-set-family-code: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-set-family-niconne: "Niconne", cursive !default;
+$font-set-size-default: 14;
+$font-set-size-ratio: 62.5%;
+$font-set-size-computed: (16 * $font-set-size-ratio * 100 / 100);
+
+// break points
+$bp-set-sm: 576; // smart phone
+$bp-set-md: 768; // tablet
+$bp-set-lg: 992; // pc
+$bp-set-xl: 1200; // wide pc
+
+
+/*============================================================================*/
+// assignment
+/*============================================================================*/
+
+$color-theme-primary:                                    $color-set-primary !default;
+$color-theme-secondary:                                  $color-set-secondary !default;
+$color-font:                                             $color-set-font !default;
+$color-bg:                                               $color-set-bg   !default;
+$color-link:                                             $color-set-link !default;
+$color-link-hover:                                       lighten($color-link, 20%) !default;
+$font-family-primary:                                    $font-set-family-sans-serif !default;
+$font-family-secondary:                                  $font-set-family-secondary !default;
+$font-family-code:                                       $font-set-family-code !default;
+$font-family-niconne:                                    $font-set-family-niconne !default;
+$font-size-default:                                      $font-set-size-default !default;
+$font-size-ratio:                                        $font-set-size-ratio !default;
+$font-size-computed:                                     $font-set-size-computed !default;
+
+// break points
+$bp-sm: $bp-set-sm;
+$bp-md: $bp-set-md;
+$bp-lg: $bp-set-lg;
+$bp-xl: $bp-set-xl;
+$bp-sm_em: $bp-sm/16;
+$bp-md_em: $bp-md/16;
+$bp-lg_em: $bp-lg/16;
+$bp-xl_em: $bp-xl/16;
+
+$g-bp: (
+  sm:                                                           $bp-sm_em + em,
+  md:                                                           $bp-md_em + em,
+  lg:                                                           $bp-lg_em + em,
+  xl:                                                           $bp-xl_em + em,
+  sm_num:                                                       $bp-sm,
+  md_num:                                                       $bp-md,
+  lg_num:                                                       $bp-lg,
+  xl_num:                                                       $bp-xl
+) !default;
+
+@function bp($value: md) {
+  @return map-get($g-bp, $value);
+}
+
+
+
+
+
+
