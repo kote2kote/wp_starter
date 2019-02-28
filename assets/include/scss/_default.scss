@@ -3,12 +3,14 @@ variables
 ===========================================================*/
 
 // color
-$color-set-primary:                                               #008CBA !default;
-$color-set-secondary:                                             #52D4FE !default;
+$color-set-base:                                                  #008CBA !default;
+$color-set-sub:                                                   #52D4FE !default;
+$color-set-accent:                                                #52D4FE !default;
 $color-set-font:                                                  #333333 !default;
 $color-set-bg:                                                    #F3F6F9 !default;
-$color-set-link:                                                  #657382 !default;
-$color-set-higlight:                                              #657382 !default;
+$color-set-link:                                                  #fff    !default;
+$color-set-link-hover :                                           #fff    !default;
+$color-set-highlight:                                             #fff    !default;
 
 // fonts
 $font-set-family-sans-serif:"メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !default;
@@ -16,7 +18,7 @@ $font-set-family-serif: "Lucida Grande", "segoe UI", "ヒラギノ丸ゴ ProN W4
 $font-set-family-secondary: "Roboto Slab", Helvetica, Arial, sans-serif !default;
 $font-set-family-code: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 $font-set-family-niconne: "Niconne", cursive !default;
-$font-set-size-default: 14;
+$font-set-size-default: 16;
 $font-set-size-ratio: 0.625;
 $font-set-size-ratio-per: percentage($font-set-size-ratio);
 $font-set-size-computed: (16 * $font-set-size-ratio * 100 / 100);
@@ -31,12 +33,15 @@ $bp-set-xl: 1200; // wide pc
 // assignment
 //===========================================================*/
 
-$color-theme-primary:                                    $color-set-primary !default;
-$color-theme-secondary:                                  $color-set-secondary !default;
+$color-theme-base:                                       $color-set-base!default;
+$color-theme-sub:                                        $color-set-sub !default;
+$color-theme-accent:                                     $color-set-accent !default;
 $color-font:                                             $color-set-font !default;
 $color-bg:                                               $color-set-bg   !default;
 $color-link:                                             $color-set-link !default;
-$color-link-hover:                                       lighten($color-link, 20%) !default;
+$color-link-hover:                                       $color-set-link-hover !default;
+//$color-link-hover:                                     lighten($color-link, 20%) !default;
+$color-highlight:                                        $color-set-highlight !default;
 $font-family-primary:                                    $font-set-family-sans-serif !default;
 $font-family-secondary:                                  $font-set-family-secondary !default;
 $font-family-code:                                       $font-set-family-code !default;
@@ -463,8 +468,8 @@ text-rendering: optimizelegibility;
 background-color: $color-bg;
 word-wrap: break-word;
 margin: 0;
-//background-color: #1D364C;
-color: $color-set-font;
+background-color: #1D364C;
+color: #fff;
 overflow: hidden;
   
 @include bp(lg) {
@@ -502,7 +507,7 @@ p {@include fz();}
 
 a {
 color: $color-link;
-text-decoration: none;
+text-decoration: underline;
 
   &:link {
   }
@@ -549,12 +554,12 @@ height: auto;
 //===========================================================*/
 
 ::-moz-selection {
-color: $color-set-font;
-background-color: $color-set-higlight;
+color: $color-font;
+background-color: $color-highlight;
 }
 ::selection {
-color: $color-set-font;
-background-color: $color-set-higlight;
+color: $color-font;
+background-color: $color-highlight;
 }
 :placeholder-shown {
 //border: 1px solid silver;
@@ -1693,9 +1698,14 @@ grid system
   }
 }
 
-//etc
+/*==========================================================
+etc...
+===========================================================*/
 .space2000 {
   height: 2000px;
+}
+.line-squre {
+  border: 1px solid #fff;
 }
 .line-title {
   border-top: 2px solid #fff;
@@ -1703,3 +1713,8 @@ grid system
   padding: 5px 0;
   margin: 50px 0 10px;
 }
+.label, .button.is-text {
+  color: #fff;
+}
+
+
