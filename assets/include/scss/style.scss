@@ -1,5 +1,5 @@
 /*!
-Theme Name: default
+Theme Name: wp_start
 Theme URI: https://google.com/
 Author: Underscores.me
 Author URI: https://google.com/
@@ -19,12 +19,8 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
-@import "common/variables";// theme colors, font, break points etc...
-@import "common/mixins";// mixin
-@import "common/common";// bulma reset
-@import "common/reset";// reset
-@import "common/grid";// grid system
-
 // pages scss
+@import "default";
 @import "pages/main";
-@import "pages/default/main";
+@import "pages/top/main";
+// @import "pages/default/main";
