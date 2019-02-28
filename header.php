@@ -29,7 +29,7 @@
   <![endif]-->
 </head>
 
-<body id="Blog" <?php body_class($slug." Blog"); ?>>
+<body id="<?php echo "#".$slug?>" <?php body_class($slug); ?>>
 <?php get_template_part('template-parts/common/loading'); ?>
 <?php get_template_part('template-parts/common/debag'); ?>
 

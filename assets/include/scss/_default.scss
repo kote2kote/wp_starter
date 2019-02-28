@@ -8,8 +8,8 @@ $color-set-sub:                                                   #52D4FE !defau
 $color-set-accent:                                                #52D4FE !default;
 $color-set-font:                                                  #333333 !default;
 $color-set-bg:                                                    #F3F6F9 !default;
-$color-set-link:                                                  #fff    !default;
-$color-set-link-hover :                                           #fff    !default;
+$color-set-link:                                                  #333333 !default;
+$color-set-link-hover :                                           #333333 !default;
 $color-set-highlight:                                             #fff    !default;
 
 // fonts
@@ -468,8 +468,6 @@ text-rendering: optimizelegibility;
 background-color: $color-bg;
 word-wrap: break-word;
 margin: 0;
-background-color: #1D364C;
-color: #fff;
 overflow: hidden;
   
 @include bp(lg) {

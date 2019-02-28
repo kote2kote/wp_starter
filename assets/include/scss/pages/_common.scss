@@ -1,25 +1,3 @@
 /*-------------------------------------------------------
- blog common settings
+Home common settings
 -------------------------------------------------------*/
-.Blog {
-  color: #333;
-  a {
-    color: #333;
-    text-decoration: underline;
-  }
-  .h2 {
-    color: rgb(255, 57, 57);
-  }
-
-  .post-thumbnail, .entry-content, .Comments {
-    img {
-      //max-width: 20rem;
-    }
-  }
-  
-  .MainSection {
-    .content-area {
-      @include rem("min-width", 700)
-    }
-  }
-}
